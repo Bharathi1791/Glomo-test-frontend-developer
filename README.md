@@ -1,5 +1,5 @@
 # GlomoSportsPoll
-An application for sports poll with react, styled components, functional hooks, use reducers and typescript
+An application to vote for various events in various categories of sports
 
 ### Technologies used
 * React
@@ -7,6 +7,8 @@ An application for sports poll with react, styled components, functional hooks, 
 * React useReducers for managing state
 * Typescript
 * CSS
+* data stored in local storage 
+
   
 * Hours Spent : 7 hours
 * Stuck with react enzyme testing.
