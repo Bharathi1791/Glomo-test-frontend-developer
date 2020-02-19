@@ -1,22 +1,20 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Tech Stack:
-  React
-  Styled Components
-  React useReducers for managing state
-  Typescript
-  CSS
+### Technologies used
+* React
+* Styled Components
+* React useReducers for managing state
+* Typescript
+* CSS
   
-## Hours Spent : 7 hours
+* Hours Spent : 7 hours
+* Stuck with react enzyme testing.
 
-## Stuck with react enzyme testing.
-
-## Step to run project on your computer
-
-### git clone https://github.com/Bharathi1791/GlomoSportsPoll.git
-open the project folder
-npm install - it will install all dependencies
-npm start - it open a browser window to see the application in localhost
+### Step to run project on your computer
+* git clone https://github.com/Bharathi1791/GlomoSportsPoll.git
+* open the project folder
+* npm install - it will install all dependencies
+* npm start - it open a browser window to see the application in localhost
 
 
 ## Available Scripts
