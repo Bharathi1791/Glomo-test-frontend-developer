@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GlomoSportsPoll
+An application for sports poll with react, styled components, functional hooks, use reducers and typescript
 
 ### Technologies used
 * React
