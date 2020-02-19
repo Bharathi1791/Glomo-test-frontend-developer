@@ -7,9 +7,9 @@ An application to vote for various events in various categories of sports
 * React useReducers for managing state
 * Typescript
 * CSS
-* data stored in local storage 
 
-  
+### General Notes
+* data stored in local storage 
 * Hours Spent : 7 hours
 * Stuck with react enzyme testing.
 
