@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
-import sportReducer from './reducers/SportReducer';
-import Events from './components/Events';
-import data from './db/test-assignment.json';
+import sportReducer from './Reducers/SportReducer';
+import Events from './Components/Events';
+import data from './DB/test-assignment.json';
 import styled from 'styled-components'
 
 const Button = styled.button`

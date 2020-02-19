@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, render } from "enzyme";
-import EventCard from "../components/EventCard";
+import EventCard from "../Components/EventCard";
 
 describe("<Events />", () => {
     it("shallow", () => {

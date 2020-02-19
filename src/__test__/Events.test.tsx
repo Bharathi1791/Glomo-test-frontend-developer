@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, render } from "enzyme";
-import Events from "../components/Events";
+import Events from "../Components/Events";
 import data from '../DB/test-assignment.json';
 
 describe("<Events />", () => {
