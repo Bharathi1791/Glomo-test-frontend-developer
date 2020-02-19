@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
+import styled from 'styled-components';
 import eventReducer from '../Reducers/EventReducer';
-import EventCard from './EventCard'
+import EventCard from './EventCard';
 
 interface Data {
   awayName: string,
@@ -19,6 +20,23 @@ interface Props {
   currentSport: string,
   data: Data[]
 }
+
+const EndNote = styled.div`
+  color: #FFB100;
+  width: 90%;
+  font-family: "Patua One";
+  text-align: center;
+  font-size: 14px;
+  animation: blinkingText 3s infinite;
+  margin-top: 20vw;
+  padding: 20px;
+  
+  @keyframes blinkingText{
+    0%{     color:  #FFB100;    }
+    60%{    color: transparent; }
+    100%{   color:  #FFB100;    }
+}
+`;
 
 const Events: React.FC<Props> = ({ currentSport, data }) => {
 
@@ -40,12 +58,12 @@ const Events: React.FC<Props> = ({ currentSport, data }) => {
 
   useEffect(() => {
     eventsDispatch({ type: 'GET_EVENTS', data: data, currentSport: currentSport });
-  }, [currentSport]);
+  }, [currentSport, data]);
 
   const loadNextEvent = () => {
     setTimeout(() => {
       eventsDispatch({ type: 'GET_NEXT_EVENT', events: events.currentEvents });
-    }, 2000)
+    }, 3000)
   }
 
   return (
@@ -64,7 +82,9 @@ const Events: React.FC<Props> = ({ currentSport, data }) => {
           state={events.currentEvent.state}
           handleClick={loadNextEvent}
         />
-        : 'Currently no event available to vote! Please click '
+        :
+        <EndNote>You have successfully voted for all events in this category. Please click next or refresh the page to continue with another category!!</EndNote>
+
       }
     </div>
   );

@@ -16,14 +16,17 @@ const PageHeader = styled.h4`
   text-align: center;
   font-weight: bold;
   font-size: 24px;
+  color: #FFB100;
 `;
 
 const Card = styled.div`
- width: 95vw;
- margin: auto;
- box-shadow: -1px -2px 14px 6px rgba(209,209,209,1);
- margin-top: 4vh;
- border-radius: 5px;
+  width: 95vw;
+  margin: auto;
+  margin-top: 4vh;
+  border-radius: 5px;
+  @media only screen and (min-width: 1024px) {
+    width: 35vw;
+  }
 `;
 
 const Header = styled.div`
@@ -35,10 +38,9 @@ const Header = styled.div`
     font-size: 10px;
     font-weight: bold;
     width: 100%;
-    color: #FF0266;
-    background: black;
+    color: #a9bed8;
+    background: #38445D;
     height: 8vh;
-    margin-bottom: 2vh;
 `;
 
 const Image = styled.img`
@@ -46,7 +48,17 @@ const Image = styled.img`
 `;
 
 const Heading = styled.div`
-  width: 75%;
+  width: 80%;
+  text-align: center;
+ 
+  @media only screen and (min-width: 768px) {
+    width: 100%;
+    padding-right: 100px;
+  }
+  @media only screen and (min-width: 1024px) {
+    width: 100%;
+    padding-right: 50px;
+  }
 `;
 
 const Section = styled.div`
@@ -55,23 +67,32 @@ const Section = styled.div`
   justify-content: space-evenly;
   align-items: center;
   font-family: "Roboto";
+  background-color: #475672;
+  height: 50vh;
+  color: #ffffff;
 `;
 
 const Group = styled.div`
   font-family: "Press Start 2P", "Roboto";
   font-size: 12px;
-  color: #4A148C;
+  color: #3DADC5;
   font-weight: bold;
 `;
 
-const OptionWrapper = styled.div`
+const OptionsWrapper = styled.div`
   display: flex;
   flex-flow: column nowrap;
   padding: 20px;
-  width: 80%;
+  width: 60%;
+  @media only screen and (min-width: 768px) {
+    width: 40%;
+  }
+  @media only screen and (min-width: 1024px) {
+    width: 40%;
+  }
 `;
 
-const Options = styled.div`
+const Option = styled.div`
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
@@ -86,11 +107,18 @@ const Name = styled.div`
   font-family: "Patua One";
 `;
 
+const InputCheckBox = styled.input`
+  padding: 5px;
+`;
+
 const ResultWrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  width: 100%;
+  width: 80%;
+  color: #fff;
+  font-weight: bolder;
+  font-family: "Patua One";
 `;
 
 interface Props {
@@ -152,7 +180,7 @@ const EventCard: React.FC<Props> = (props) => {
     setTimeout(() => {
       votesDispatch({ type: 'SHOW_RESULT', objectId: props.objectId })
       props.handleClick();
-    }, 2000);
+    }, 100);
   }
   return (
     <div>
@@ -165,19 +193,19 @@ const EventCard: React.FC<Props> = (props) => {
         <Section>
           <Group>{props.group}</Group>
           <Name>{props.homeName} vs {props.awayName}</Name>
-          <OptionWrapper>
-            <Options>
-              <input
+          <OptionsWrapper>
+            <Option>
+              <InputCheckBox
                 type="checkbox"
                 checked={votes.isChecked.teamA}
                 disabled={votes.isDisabled.teamA}
                 value="teamA"
                 onChange={addVote}
               />
-              <div>{props.homeName}(Team A)</div>
-            </Options>
-            <Options>
-              <input
+              <div>{props.homeName}(TeamA) win</div>
+            </Option>
+            <Option>
+              <InputCheckBox
                 type="checkbox"
                 disabled={votes.isDisabled.draw}
                 checked={votes.isChecked.draw}
@@ -185,33 +213,29 @@ const EventCard: React.FC<Props> = (props) => {
                 onChange={addVote}
               />
               <div>Draw</div>
-            </Options>
-            <Options>
-              <input
+            </Option>
+            <Option>
+              <InputCheckBox
                 type="checkbox"
                 disabled={votes.isDisabled.teamB}
                 checked={votes.isChecked.teamB}
                 value="teamB"
                 onChange={addVote}
               />
-              <div>{props.awayName}(Team B)</div>
-            </Options>
-          </OptionWrapper>
-        </Section>
-        <div>
+              <div>{props.awayName}(TeamB) win</div>
+            </Option>
+          </OptionsWrapper>
           {votes && votes.showResult
             ? <ResultWrapper>
-              <p>Team A - {votes.resultDetail.teamA}</p>
-              <p>Team B - {votes.resultDetail.teamB}</p>
-              <p>Draw - {votes.resultDetail.draw}</p>
+              <p>Team A ({votes.resultDetail.teamA})</p>
+              <p>Draw ({votes.resultDetail.draw})</p>
+              <p>Team B ({votes.resultDetail.teamB})</p>
             </ResultWrapper>
             : <div></div>
           }
-        </div>
+        </Section>
       </Card>
-
     </div>
-
   );
 };
 

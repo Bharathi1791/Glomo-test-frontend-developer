@@ -26,9 +26,8 @@ const sportReducer = (state: State, action: Actions) => {
   switch (action.type) {
     case 'GET_SPORTS':
       const listSportNames: StringArray = [];
-      action.data.map(list => {
+      action.data.forEach(list => {
         if (!listSportNames.includes(list['sport'])) listSportNames.push(list['sport']);
-        return listSportNames;
       });
       const getRandomSport = listSportNames[Math.floor(Math.random() * listSportNames.length)];
       const filterSportName = listSportNames.filter((current) => current !== getRandomSport);

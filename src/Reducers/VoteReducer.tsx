@@ -46,6 +46,7 @@ const voteReducer = (state: State, action: Actions) => {
             event.draw = action.team === 'draw' ? event.draw + 1 : event.draw
             event.teamB = action.team === 'teamB' ? event.teamB + 1 : event.teamB
           }
+          return state.eventVotes;
         })
       }
       localStorage.setItem('eventVotes', JSON.stringify(state.eventVotes))
