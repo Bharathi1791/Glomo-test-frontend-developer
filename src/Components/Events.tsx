@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 import styled from 'styled-components';
-import eventReducer from '../Reducers/EventReducer';
+import eventReducer from '../reducers/EventReducer';
 import EventCard from './EventCard';
 
 interface Data {

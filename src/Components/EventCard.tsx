@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from 'react';
 import styled from 'styled-components';
-import voteReducer from '../Reducers/VoteReducer';
+import voteReducer from '../reducers/VoteReducer';
 import sweden from '../Assets/images/Sweden.png';
 import france from '../Assets/images/France.png';
 import england from '../Assets/images/England.png';
